@@ -350,6 +350,7 @@ namespace resolver_errc {
 #undef ASIO_WIN_OR_POSIX
 
 #if defined(ASIO_HEADER_ONLY)
+# include "asio/impl/error_code.ipp"
 # include "asio/impl/error.ipp"
 #endif // defined(ASIO_HEADER_ONLY)
 

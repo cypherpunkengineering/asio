@@ -195,8 +195,11 @@ std::basic_ostream<Elem, Traits>& operator<<(
 
 #include "asio/detail/pop_options.hpp"
 
-#if defined(ASIO_HEADER_ONLY)
-# include "asio/impl/error_code.ipp"
+// Circular dependency; error_code.ipp needs error.hpp,
+// so instead include it from there.
+#if defined(ASIO_HEADER_ONLY) && !defined(ASIO_ERROR_HPP)
+//# include "asio/impl/error_code.ipp
+# include "asio/error.hpp"
 #endif // defined(ASIO_HEADER_ONLY)
 
 #endif // ASIO_ERROR_CODE_HPP
